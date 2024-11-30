@@ -1,0 +1,64 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light dark;
+  }
+
+  html {
+    direction: rtl;
+    font-family: 'Vazirmatn', system-ui, sans-serif;
+  }
+  
+  body {
+    @apply antialiased bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-white transition-colors;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dark mode optimizations */
+.dark {
+  color-scheme: dark;
+}
+
+.dark input,
+.dark textarea,
+.dark select {
+  @apply bg-gray-800 border-gray-700 text-white placeholder-gray-400;
+}
+
+.dark input:focus,
+.dark textarea:focus,
+.dark select:focus {
+  @apply border-primary-500 ring-primary-500/20;
+}
+
+/* Font optimizations */
+@supports (font-variation-settings: normal) {
+  html {
+    font-feature-settings: "ss01" 1, "ss02" 1, "ss03" 1;
+  }
+}
+
+/* Card and button shadows */
+.shadow-card {
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.dark .shadow-card {
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.05), 0 1px 3px rgba(0, 0, 0, 0.2);
+}
